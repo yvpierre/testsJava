@@ -60,7 +60,7 @@ public class TestController {
 
     @GetMapping("/play/{playerAction}")
     public String play(@PathVariable String playerAction) {
-        String[] validActions = {"rock", "paper", "scissors", "lizard", "spock"};
+        String[] validActions = {"pierre", "feuille", "ciseaux"};
         String computerAction = validActions[(int) (Math.random() * validActions.length)];
         String result = getResult(playerAction, computerAction);
         updateScore(result);
@@ -76,7 +76,7 @@ public class TestController {
 
     @GetMapping("/score")
     public String score() {
-        return "Wins: " + wins + ", Losses: " + losses + ", Ties: " + ties;
+        return "Victoires: " + wins + ", Défaites: " + losses + ", Égalités: " + ties;
     }
 
     @PutMapping("/score/{wins}/{losses}/{ties}")
@@ -96,11 +96,11 @@ public class TestController {
     private String getResult(String playerAction, String computerAction) {
         if (playerAction.equals(computerAction)) {
             ties++;
-            return "It's a tie!";
+            return "Égalité !";
         }
         switch (playerAction) {
-            case "rock":
-                if (computerAction.equals("scissors") || computerAction.equals("lizard")) {
+            case "pierre":
+                if (computerAction.equals("ciseaux")) {
                     wins++;
                     return "You win!";
                 } else {
@@ -108,7 +108,7 @@ public class TestController {
                     return "You lose!";
                 }
             case "paper":
-                if (computerAction.equals("rock") || computerAction.equals("spock")) {
+                if (computerAction.equals("rock")){
                     wins++;
                     return "You win!";
                 } else {
@@ -116,23 +116,7 @@ public class TestController {
                     return "You lose!";
                 }
             case "scissors":
-                if (computerAction.equals("paper") || computerAction.equals("lizard")) {
-                    wins++;
-                    return "You win!";
-                } else {
-                    losses++;
-                    return "You lose!";
-                }
-            case "lizard":
-                if (computerAction.equals("paper") || computerAction.equals("spock")) {
-                    wins++;
-                    return "You win!";
-                } else {
-                    losses++;
-                    return "You lose!";
-                }
-            case "spock":
-                if (computerAction.equals("rock") || computerAction.equals("scissors")) {
+                if (computerAction.equals("paper")){
                     wins++;
                     return "You win!";
                 } else {

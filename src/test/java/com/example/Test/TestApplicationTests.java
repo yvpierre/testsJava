@@ -23,32 +23,20 @@ class TestControllerTest {
 	}
 
 	@Test
-	public void testPlayRock() {
-		String response = testController.play("rock");
+	public void testPlayPierre() {
+		String response = testController.play("pierre");
 		assertThat(response, containsString("You"));
 	}
 
 	@Test
-	public void testPlayPaper() {
-		String response = testController.play("paper");
+	public void testPlayPapier() {
+		String response = testController.play("papier");
 		assertThat(response, containsString("You"));
 	}
 
 	@Test
-	public void testPlayScissors() {
-		String response = testController.play("scissors");
-		assertThat(response, containsString("You"));
-	}
-
-	@Test
-	public void testPlayLizard() {
-		String response = testController.play("lizard");
-		assertThat(response, containsString("You"));
-	}
-
-	@Test
-	public void testPlaySpock() {
-		String response = testController.play("spock");
+	public void testPlayCiseaux() {
+		String response = testController.play("ciseaux");
 		assertThat(response, containsString("You"));
 	}
 
